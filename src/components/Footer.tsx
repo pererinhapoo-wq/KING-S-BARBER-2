@@ -90,6 +90,9 @@ export const Footer: React.FC = () => {
                 <a href="#localizacao" className="hover:text-[#edd28b] transition-colors">Onde Estamos</a>
               </li>
               <li>
+                <a href="#faq" className="hover:text-[#edd28b] transition-colors">Dúvidas Frequentes (FAQ)</a>
+              </li>
+              <li>
                 <a href="#contato" className="hover:text-[#edd28b] transition-colors">Fale Conosco</a>
               </li>
             </ul>

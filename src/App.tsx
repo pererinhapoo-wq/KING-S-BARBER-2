@@ -7,6 +7,7 @@ import { Team } from './components/Team';
 import { Gallery } from './components/Gallery';
 import { Testimonials } from './components/Testimonials';
 import { LocationHours } from './components/LocationHours';
+import { FAQ } from './components/FAQ';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
 import { WhatsAppFloat } from './components/WhatsAppFloat';
@@ -65,6 +66,9 @@ export default function App() {
 
         {/* Localização e Horários */}
         <LocationHours />
+
+        {/* Perguntas Frequentes (FAQ) */}
+        <FAQ onOpenBooking={() => handleOpenBooking()} />
 
         {/* Contato & Agendamento Rápido */}
         <ContactSection onOpenBooking={() => handleOpenBooking()} />
