@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Calendar, ChevronRight, Sparkles, ShieldCheck, Coffee } from 'lucide-react';
 import { heroImage, BARBERSHOP_INFO } from '../data/barberData';
 
@@ -7,7 +7,57 @@ interface HeroProps {
   onExploreServices: () => void;
 }
 
+const SLOGAN_PHRASES = [
+  'Estilo, precisão e atitude.',
+  'Cortes cirúrgicos e visagismo.',
+  'A nobre arte da barboterapia.',
+  'Exclusividade em cada detalhe.',
+];
+
 export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onExploreServices }) => {
+  const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
+  const [displayedText, setDisplayedText] = useState('');
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    // Check for reduced motion preference
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) {
+      setDisplayedText(SLOGAN_PHRASES[0]);
+      return;
+    }
+
+    const currentTarget = SLOGAN_PHRASES[currentPhraseIndex];
+    let timer: NodeJS.Timeout;
+
+    if (!isDeleting) {
+      // Typing phase
+      if (displayedText.length < currentTarget.length) {
+        timer = setTimeout(() => {
+          setDisplayedText(currentTarget.slice(0, displayedText.length + 1));
+        }, 80);
+      } else {
+        // Pause at full text
+        timer = setTimeout(() => {
+          setIsDeleting(true);
+        }, 2200);
+      }
+    } else {
+      // Deleting phase
+      if (displayedText.length > 0) {
+        timer = setTimeout(() => {
+          setDisplayedText(currentTarget.slice(0, displayedText.length - 1));
+        }, 40);
+      } else {
+        // Move to next phrase
+        setIsDeleting(false);
+        setCurrentPhraseIndex((prev) => (prev + 1) % SLOGAN_PHRASES.length);
+      }
+    }
+
+    return () => clearTimeout(timer);
+  }, [displayedText, isDeleting, currentPhraseIndex]);
+
   return (
     <section id="inicio" className="relative min-h-[92vh] sm:min-h-screen flex items-center justify-center pt-24 pb-16 overflow-hidden">
       {/* Background Photography with Measured Scrim for WCAG AA Contrast */}
@@ -38,10 +88,20 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onExploreServices }) 
           KING'S <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#edd28b] via-[#c5a059] to-[#dfba63]">BARBER</span>
         </h1>
 
-        {/* Slogan */}
-        <p className="font-display text-xl sm:text-2xl md:text-3xl text-zinc-200 italic tracking-wide font-normal mb-6">
-          “Estilo, precisão e atitude.”
-        </p>
+        {/* Slogan with Animated Typing Effect */}
+        <div className="min-h-[2.5rem] sm:min-h-[3rem] flex items-center justify-center sm:justify-start mb-6">
+          <p
+            className="font-display text-xl sm:text-2xl md:text-3xl text-zinc-100 italic tracking-wide font-normal inline-flex items-center"
+            aria-live="polite"
+            aria-label="Slogan King's Barber: Estilo, precisão e atitude."
+          >
+            <span>“{displayedText}”</span>
+            <span
+              className="inline-block w-[2.5px] sm:w-[3px] h-[1.15em] ml-1 bg-[#edd28b] animate-[pulse_0.9s_ease-in-out_infinite] shadow-[0_0_8px_rgba(237,210,139,0.8)]"
+              aria-hidden="true"
+            />
+          </p>
+        </div>
 
         {/* Short Narrative Brief */}
         <p className="text-zinc-300 text-base sm:text-lg max-w-2xl leading-relaxed mb-8 text-balance">
