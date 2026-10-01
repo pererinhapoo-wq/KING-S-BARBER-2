@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Scissors, Menu, X, Calendar, Phone, Clock } from 'lucide-react';
 import { BARBERSHOP_INFO } from '../data/barberData';
+import { ThemeToggle } from './ThemeToggle';
 
 interface NavbarProps {
   onOpenBooking: (serviceId?: string) => void;
@@ -84,8 +85,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
             ))}
           </nav>
 
-          {/* Zone 3: Primary Action & Mobile Menu Trigger */}
-          <div className="flex items-center gap-3">
+          {/* Zone 3: Primary Action, Theme Toggle & Mobile Menu Trigger */}
+          <div className="flex items-center gap-2.5 sm:gap-3">
+            {/* Theme Toggle Button */}
+            <ThemeToggle />
+
             <button
               onClick={() => onOpenBooking()}
               className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 text-xs font-semibold text-black bg-gradient-to-r from-[#edd28b] via-[#c5a059] to-[#a7823b] rounded hover:brightness-110 active:scale-95 transition-all shadow-md shadow-[#c5a059]/20 whitespace-nowrap uppercase tracking-wider cursor-pointer"
@@ -153,6 +157,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
 
             {/* Bottom Actions inside Mobile Drawer */}
             <div className="pt-6 border-t border-[#222631] space-y-3">
+              {/* Theme Toggle row */}
+              <div className="pb-1">
+                <span className="text-[10px] uppercase font-bold text-zinc-400 tracking-wider block mb-1.5 px-1">
+                  Estilo Visual
+                </span>
+                <ThemeToggle showLabel className="w-full justify-between px-3.5 py-2.5" />
+              </div>
+
               <button
                 onClick={() => {
                   setMobileMenuOpen(false);

@@ -19,6 +19,12 @@ body {
   background-color: #0b0c0e;
   color: #f4f4f5;
   overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.theme-light {
+  background-color: #f8f7f4 !important;
+  color: #191b20 !important;
 }
 
 .font-display {
@@ -40,4 +46,185 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #c5a059;
 }
+
+/* LIGHT PREMIUM THEME OVERRIDES */
+html[data-theme="light"] ::-webkit-scrollbar-track {
+  background: #f1ede5;
+}
+html[data-theme="light"] ::-webkit-scrollbar-thumb {
+  background: #d4cec0;
+}
+html[data-theme="light"] ::-webkit-scrollbar-thumb:hover {
+  background: #9c7728;
+}
+
+/* Main background overrides */
+html[data-theme="light"] .bg-\[\#0b0c0e\],
+html[data-theme="light"] .bg-\[\#08090a\],
+html[data-theme="light"] .bg-\[\#08090b\] {
+  background-color: #f8f7f4 !important;
+}
+
+html[data-theme="light"] .bg-\[\#0d0f12\],
+html[data-theme="light"] .bg-\[\#0d0f14\],
+html[data-theme="light"] .bg-\[\#0f1117\] {
+  background-color: #f1ede5 !important;
+}
+
+html[data-theme="light"] .bg-\[\#12141a\],
+html[data-theme="light"] .bg-\[\#12141c\],
+html[data-theme="light"] .bg-\[\#14161f\],
+html[data-theme="light"] .bg-\[\#14171f\],
+html[data-theme="light"] .bg-\[\#141720\],
+html[data-theme="light"] .bg-\[\#141722\],
+html[data-theme="light"] .bg-\[\#11131a\] {
+  background-color: #ffffff !important;
+  border-color: #ded8cb !important;
+  box-shadow: 0 4px 20px -3px rgba(35, 30, 20, 0.06) !important;
+}
+
+html[data-theme="light"] .bg-\[\#141620\],
+html[data-theme="light"] .bg-\[\#1a1c24\],
+html[data-theme="light"] .bg-\[\#181c25\] {
+  background-color: #f4efe6 !important;
+  border-color: #ded8cb !important;
+}
+
+/* Borders in Light Mode */
+html[data-theme="light"] .border-zinc-800,
+html[data-theme="light"] .border-zinc-800\/80,
+html[data-theme="light"] .border-zinc-800\/60,
+html[data-theme="light"] .border-zinc-800\/90,
+html[data-theme="light"] .border-zinc-700,
+html[data-theme="light"] .border-zinc-700\/80,
+html[data-theme="light"] .border-zinc-700\/60,
+html[data-theme="light"] .border-\[\#1a1d24\],
+html[data-theme="light"] .border-\[\#222631\],
+html[data-theme="light"] .border-\[\#222631\]\/80 {
+  border-color: #dfd8cb !important;
+}
+
+/* Typography in Light Mode */
+html[data-theme="light"] .text-white {
+  color: #14161a !important;
+}
+
+html[data-theme="light"] .text-zinc-100 {
+  color: #1a1c22 !important;
+}
+
+html[data-theme="light"] .text-zinc-200 {
+  color: #2b2e37 !important;
+}
+
+html[data-theme="light"] .text-zinc-300 {
+  color: #404450 !important;
+}
+
+html[data-theme="light"] .text-zinc-400 {
+  color: #5d6371 !important;
+}
+
+html[data-theme="light"] .text-zinc-500 {
+  color: #7b8190 !important;
+}
+
+/* Dark Gold Accents for Light Mode */
+html[data-theme="light"] .text-\[\#edd28b\] {
+  color: #8c671a !important;
+}
+
+html[data-theme="light"] .text-\[\#c5a059\] {
+  color: #9c7728 !important;
+}
+
+html[data-theme="light"] .border-\[\#c5a059\] {
+  border-color: #9c7728 !important;
+}
+
+html[data-theme="light"] .border-\[\#c5a059\]\/60,
+html[data-theme="light"] .border-\[\#c5a059\]\/40 {
+  border-color: rgba(156, 119, 40, 0.45) !important;
+}
+
+html[data-theme="light"] .bg-\[\#c5a059\]\/10 {
+  background-color: rgba(156, 119, 40, 0.1) !important;
+}
+
+/* Header in Light Mode */
+html[data-theme="light"] header {
+  background-color: rgba(248, 247, 244, 0.95) !important;
+  border-color: #ded8cb !important;
+}
+
+html[data-theme="light"] header nav a {
+  color: #3b3f4a !important;
+}
+html[data-theme="light"] header nav a:hover {
+  color: #8c671a !important;
+}
+
+/* Inputs & Form elements in Light Mode */
+html[data-theme="light"] input,
+html[data-theme="light"] select,
+html[data-theme="light"] textarea {
+  background-color: #fbfaf8 !important;
+  color: #15171b !important;
+  border-color: #d6cfc0 !important;
+}
+
+html[data-theme="light"] input::placeholder,
+html[data-theme="light"] textarea::placeholder {
+  color: #8990a0 !important;
+}
+
+/* Footer in Light Mode */
+html[data-theme="light"] footer {
+  background-color: #ece7de !important;
+  border-color: #dad4c6 !important;
+}
+
+html[data-theme="light"] footer .bg-zinc-900 {
+  background-color: #ded8ca !important;
+  border-color: #cfc8b9 !important;
+}
+
+/* Hero gradient scrim compensation for Light Mode */
+html[data-theme="light"] #inicio .bg-gradient-to-t {
+  background-image: linear-gradient(to top, rgba(248, 247, 244, 0.96) 0%, rgba(248, 247, 244, 0.85) 50%, rgba(248, 247, 244, 0.65) 100%) !important;
+}
+html[data-theme="light"] #inicio .bg-gradient-to-r {
+  background-image: linear-gradient(to right, rgba(248, 247, 244, 0.94) 0%, rgba(248, 247, 244, 0.7) 60%, transparent 100%) !important;
+}
+html[data-theme="light"] #inicio .bg-radial {
+  opacity: 0.15 !important;
+}
+
+/* Primary Gold Button in Light Mode */
+html[data-theme="light"] .bg-gradient-to-r.from-\[\#edd28b\] {
+  background-image: linear-gradient(to right, #c79f42, #9c7728, #7d5c18) !important;
+  color: #ffffff !important;
+}
+html[data-theme="light"] .bg-gradient-to-r.from-\[\#edd28b\] svg {
+  color: #ffffff !important;
+}
+
+/* Map frame in Light Mode */
+html[data-theme="light"] iframe {
+  filter: none !important;
+  opacity: 0.95 !important;
+}
+
+/* Gold Gradient Heading in Light Mode */
+html[data-theme="light"] h1 .bg-clip-text,
+html[data-theme="light"] h2 .bg-clip-text {
+  background-image: linear-gradient(to right, #9c7728, #745414, #9c7728) !important;
+}
+
+/* Tag / Category Filter Active State in Light Mode */
+html[data-theme="light"] .bg-\[\#14171f\] {
+  background-color: #ede8df !important;
+  border-color: #ded8cb !important;
+}
+
 
