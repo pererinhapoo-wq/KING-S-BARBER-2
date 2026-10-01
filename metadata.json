@@ -1,0 +1,6 @@
+{
+  "name": "KING'S BARBER",
+  "description": "Site profissional e moderno para a barbearia KING'S BARBER com agendamento online, serviços premium, equipe e galeria.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
